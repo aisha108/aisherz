@@ -69,6 +69,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         setContentView(R.layout.activity_login);
         final Button bLogin = (Button) findViewById(R.id.bLogin);
         final TextView registerLink = (TextView) findViewById(R.id.tvRegisterHere);
+//        Firebase.setAndroidContext(this);
         registerLink.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
