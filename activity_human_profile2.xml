@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.girlswhocode.pawpals.HumanProfileActivity">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/svHuman"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Add your information"
+                android:id="@+id/tvHumanProfile"
+                android:gravity="center_vertical|center_horizontal"
+                android:textSize="25sp"
+                android:height="50dp" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:id="@+id/etHumanNameHolder"
+                android:hint="Name"
+                android:textSize="23sp"
+                android:gravity="center_vertical|center_horizontal" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:hint="Gender"
+                android:id="@+id/tvHGender"
+                android:textSize="20sp"
+                android:gravity="center_vertical|center_horizontal" />
+
+            <Spinner
+                android:id="@+id/spinHGender"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:hint="Birthday"
+                android:id="@+id/tvHBirth"
+                android:textSize="20sp"
+                android:gravity="center_vertical|center_horizontal" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Spinner
+                    android:id="@+id/spinHBMonth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown"
+                    android:layout_weight="2" />
+
+                <Spinner
+                    android:id="@+id/spinHBDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown"
+                    android:layout_weight="2" />
+
+                <Spinner
+                    android:id="@+id/spinHBYear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown"
+                    android:layout_weight="2" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:hint="Breed"
+                    android:id="@+id/tvBreed"
+                    android:textSize="20sp"
+                    android:gravity="center_vertical|center_horizontal" />
+
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/etAboutMe"
+                    android:hint="About Me"
+                    android:textSize="20sp"
+                    android:gravity="center_vertical|center_horizontal" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
