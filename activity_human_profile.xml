@@ -7,13 +7,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.girlswhocode.killmyself.MainActivity"
-    android:gravity="right">
+    tools:context="com.example.girlswhocode.killmyself.HumanProfileActivity">
 
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/svDog" >
+        android:id="@+id/svHuman"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" >
 
         <LinearLayout
             android:orientation="vertical"
@@ -23,8 +24,8 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Add your dog's information"
-                android:id="@+id/tvDogProfile"
+                android:text="Add your information"
+                android:id="@+id/tvHumanProfile"
                 android:gravity="center_vertical|center_horizontal"
                 android:textSize="25sp"
                 android:height="50dp" />
@@ -32,7 +33,7 @@
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:id="@+id/etDogNameHolder"
+                android:id="@+id/etHumanNameHolder"
                 android:hint="Name"
                 android:textSize="23sp"
                 android:gravity="center_vertical|center_horizontal" />
@@ -40,28 +41,13 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:hint="Breed"
-                android:id="@+id/tvBreed"
-                android:textSize="20sp"
-                android:gravity="center_vertical|center_horizontal" />
-
-            <Spinner
-                android:id="@+id/spinBreed"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:drawable/btn_dropdown"
-                android:spinnerMode="dropdown" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
                 android:hint="Gender"
-                android:id="@+id/tvDogGender"
+                android:id="@+id/tvHGender"
                 android:textSize="20sp"
                 android:gravity="center_vertical|center_horizontal" />
 
             <Spinner
-                android:id="@+id/spinGender"
+                android:id="@+id/spinHGender"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/btn_dropdown"
@@ -70,39 +56,63 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:hint="Size"
-                android:id="@+id/tvDogSize"
+                android:hint="Birthday"
+                android:id="@+id/tvHBirth"
                 android:textSize="20sp"
                 android:gravity="center_vertical|center_horizontal" />
 
             <Spinner
-                android:id="@+id/spinSize"
-                android:layout_width="fill_parent"
+                android:id="@+id/spinHBMonth"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/btn_dropdown"
-                android:spinnerMode="dropdown" />
+                android:spinnerMode="dropdown"
+                android:layout_weight="2" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Spinner
+                    android:id="@+id/spinHBDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown"
+                    android:layout_weight="2" />
+
+                <Spinner
+                    android:id="@+id/spinHBYear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown"
+                    android:layout_weight="2" />
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:hint="Spayed/Neutered"
-                android:id="@+id/tvSpNeut"
-                android:textSize="20sp"
+                android:layout_height="wrap_content"
+                android:hint="Write a few sentences about your dog and yourself. (This is what other users will see.)"
+                android:id="@+id/tvAboutMe"
+                android:textSize="15sp"
                 android:gravity="center_vertical|center_horizontal" />
 
-            <Spinner
-                android:id="@+id/spinSpNeut"
+            <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:drawable/btn_dropdown"
-                android:spinnerMode="dropdown" />
+                android:id="@+id/etAboutMe"
+                android:hint="About Me"
+                android:textSize="15sp"
+                android:gravity="center_vertical" />
 
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Next"
-                android:id="@+id/bProfileNext" />
-
+                android:text="Find Dogs!"
+                android:id="@+id/bFindDogs" />
 
         </LinearLayout>
     </ScrollView>
