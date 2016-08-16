@@ -1,65 +1,84 @@
-package com.example.girlswhocode.killmyself;
+package com.example.girlswhocode.myapplication;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.Spinner;
+import android.widget.EditText;
+import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final int RESULT_LOAD_IMAGE = 1;
+
+    ImageView imageToUpload, downloadedImage;
+    Button bUploadImage, bDownloadImage;
+    EditText uploadImageName, downloadImageName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_creator);
+        setContentView(R.layout.activity_main);
 
-        Spinner dropbreed = (Spinner) findViewById(R.id.spinBreed);
-        ArrayAdapter<CharSequence> adapterBreed = ArrayAdapter.createFromResource(this, R.array.breed_names, android.R.layout.simple_spinner_item);
-        adapterBreed.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        dropbreed.setAdapter(adapterBreed);
+        imageToUpload = (ImageView) findViewById(R.id.pawpal1);
+        downloadedImage = (ImageView)findViewById(R.id.downloaded_image);
 
-        Spinner dropgender = (Spinner) findViewById(R.id.spinGender);
-        ArrayAdapter<CharSequence> adapterGender = ArrayAdapter.createFromResource(this, R.array.dog_gender, android.R.layout.simple_spinner_item);
-        adapterGender.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        dropgender.setAdapter(adapterGender);
+        bUploadImage = (Button) findViewById(R.id.uploadimage1);
+        bDownloadImage = (Button) findViewById(R.id.downloadimage1);
 
-        Spinner dropSize = (Spinner) findViewById(R.id.spinSize);
-        ArrayAdapter<CharSequence> adapterSize = ArrayAdapter.createFromResource(this, R.array.size_list, android.R.layout.simple_spinner_item);
-        adapterSize.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        dropSize.setAdapter(adapterSize);
+        uploadImageName = (EditText)findViewById(R.id.edittext1);
+        downloadImageName = (EditText)findViewById(R.id.edittextdownload);
 
-        Spinner dropSpNeut = (Spinner) findViewById(R.id.spinSpNeut);
-        ArrayAdapter<CharSequence> adapterSpNeut = ArrayAdapter.createFromResource(this, R.array.YN, android.R.layout.simple_spinner_item);
-        adapterSpNeut.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        dropSpNeut.setAdapter(adapterSpNeut);
-
-        final Button bNext = (Button) findViewById(R.id.bProfileNext);
-        bNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent registerIntentTwo = new Intent(MainActivity.this, HumanProfileActivity.class);
-                MainActivity.this.startActivity(registerIntentTwo);
-            } });
-    }
-
-    public class SpinnerActivity extends Activity implements AdapterView.OnItemSelectedListener {
-        public void onItemSelected (AdapterView<?> parent, View v, int pos, long id)
-
-        {
-            //An item was selected. You can retrieve the selected item using
-            parent.getItemAtPosition(pos);
-        }
-
-        public void onNothingSelected(AdapterView<?> parent) {
-            //Another interface callback
-        }
-    }
+        imageToUpload.setOnClickListener(this);
+        bUploadImage.setOnClickListener(this);
+        bDownloadImage.setOnClickListener(this);
 
 
 
 
 }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.pawpal1:
+                Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(galleryIntent,RESULT_LOAD_IMAGE);
+                break;
+            case R.id.uploadimage1:
+
+                break;
+            case R.id.downloadimage1:
+
+                break;
+
+
+
+
+        }
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null) {
+            Uri selectedImage = data.getData();
+            imageToUpload.setImageURI(selectedImage);
+
+
+        }
+
+    }
+}
+
+
+
